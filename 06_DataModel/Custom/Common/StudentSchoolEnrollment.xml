@@ -169,7 +169,7 @@
     <Description>
       <p>Staff member assigned as an advisor.</p>
     </Description>
-    <Type ref="CommonTypes" relationship="records student advisor as" count="1:?" name="IdRefType"></Type>
+   <Type ref="CommonTypes" relationship="records student advisor as" count="1:?" name="IdRefType"></Type>
   </Item>
   <Item>
     <Attribute>SIF_RefObject</Attribute>
@@ -189,7 +189,7 @@
     <Characteristics>O</Characteristics>
 	<privacyRating>Low</privacyRating>
     <Description>
-      <p>Staff member assigned as an advisor.</p>
+      <p>Staff member assigned as counselor.</p>
     </Description>
     <Type ref="CommonTypes" relationship="records student counselor as" count="1:?" name="IdRefType"></Type>
   </Item>
@@ -199,14 +199,13 @@
 	<privacyRating>Low</privacyRating>
     <Description>
       <p>The name of the object referenced.</p>
-    </Description>
+     </Description>
     <Values>
       <Value>
         <Code>StaffPersonal</Code>
       </Value>
     </Values>
   </Item>
-
   <Item>
     <Element>Homegroup</Element>
     <Characteristics>O</Characteristics>
@@ -613,6 +612,7 @@
         <Code>10</Code>
       </YearLevel>
       <Homeroom SIF_RefObject="RoomInfo">D7510D3E-34B3-591A-8C3D-00AA001A1651</Homeroom>
+      <Counselor SIF_RefObject="StaffPersonal">B459D3E3-4D75-101A-8C3D-00AA001A1653</Counselor>
       <Advisor SIF_RefObject="StaffPersonal">B359D3E3-4D75-101A-8C3D-00AA001A1652</Advisor>
       <ExitType>
         <Code>1909</Code>

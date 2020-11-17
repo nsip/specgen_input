@@ -2936,7 +2936,7 @@
 	</CommonElement>
 	
   <!-- Added for PPOD - PersonPrivacyObligation -->
-  <!--
+  
     <CommonElement name="DataDomainObligationListType" type="true" dm="true">
 		<Item>
 			<Element>DataDomainObligationListType</Element>
@@ -3004,7 +3004,7 @@
 			<Element>ShareWith</Element>
 			<Characteristics>OR</Characteristics>
 			<Description>
-				<p>The FQItem being reported on.</p>
+				<p>The .</p>
 			</Description>
 			<Type ref="CommonTypes" name="ShareWithType"/>
 		</Item>
@@ -3022,7 +3022,7 @@
 		   <Element>ShareWithParty</Element>
 		   <Characteristics>M</Characteristics>
 		   <Description>
-			 <p>Who data could be shared with?</p>
+			 <p>Who data could be shared with? (Can we agree on a broadlist that can be typed for enumeration?)</p>
 		   </Description>
 		   <Type name="xs:normalizedString"></Type>
   		</Item>  
@@ -3030,13 +3030,13 @@
 			<Element>Purpose</Element>
 			<Characteristics>M</Characteristics>
 			<Description>
-			 <p>Why is this information to be shared?</p>
+			 <p>Why is this information to be shared? (Can we agree on a broadlist that can be typed for enumeration?)</p>
 			</Description>
 		    <Type name="xs:string"></Type>
 		</Item>
 		<Item>
 		   <Element>ShareWithComments</Element>
-		   <Characteristics>M</Characteristics>
+		   <Characteristics>O</Characteristics>
 		   <Description>
 			 <p>Comments associated with Sharing arrangement</p>
 		   </Description>
@@ -3053,7 +3053,7 @@
 		
 		<Item>
 		   <Element>ShareWithURL</Element>
-		   <Characteristics>M</Characteristics>
+		   <Characteristics>O</Characteristics>
 		   <Description>
 			 <p>URL Associated with Share</p>
 		   </Description>
@@ -3093,7 +3093,7 @@
 		   <Element>ApplicableCountry</Element>
 		   <Characteristics>M</Characteristics>
 		   <Description>
-			<p></p>
+			<p>We can type this, list of countries?</p>
 		   </Description>
 		   <Type name="xs:normalizedString"></Type>
 		</Item>  
@@ -3101,7 +3101,7 @@
 		   <Element>ApplicableLawName</Element>
 		   <Characteristics>M</Characteristics>
 		   <Description>
-			<p></p>
+			<p>(Can we agree on a broadlist that can be typed for enumeration?)</p>
 		   </Description>
 		   <Type name="xs:normalizedString"></Type>
 		</Item>  
@@ -3113,7 +3113,7 @@
 		   </Description>
 		   <Type name="xs:anyURI"></Type>
 		</Item>  
-</CommonElement>  -->
+</CommonElement>   
   
  <!-- End of PPOD Types -->
  

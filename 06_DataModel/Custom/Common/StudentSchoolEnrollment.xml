@@ -67,16 +67,7 @@
     <Type ref="CommonTypes" relationship="records enrollment of student in" count="1:1" name="IdRefType"></Type>
   </Item>
   <Item>
-  
-     <Item>
-		<Element>LocalId</Element>
-		<Characteristics>O</Characteristics>
-		<privacyRating>Low</privacyRating>
-		<Description>
-			<p>The locally-assigned identifier for this student enrollment.</p>
-		</Description>
-		<Type ref="CommonTypes" name="LocalId"/> 
-	</Item>
+ 
 
     <Element>MembershipType</Element>
     <Characteristics>M</Characteristics>
@@ -86,6 +77,17 @@
     </Description>
     <Type ref="CodeSets" name="AUCodeSetsSchoolEnrollmentTypeType"></Type>
   </Item>
+  
+   
+     <Item>
+		<Element>LocalId</Element>
+		<Characteristics>O</Characteristics>
+		<privacyRating>Low</privacyRating>
+		<Description>
+			<p>The locally-assigned identifier for this student enrollment.</p>
+		</Description>
+		<Type ref="CommonTypes" name="LocalId"/> 
+	</Item>
   <Item>
 
     <Element>TimeFrame</Element>
@@ -100,7 +102,6 @@
   </Item>
   <Item>
     <Element>SchoolYear</Element>
-
     <Characteristics>M</Characteristics>
 	<privacyRating>Low</privacyRating>
     <Description>
@@ -127,12 +128,9 @@
     <Description>Container elements for EntryType information</Description>
     <Type ref="CommonTypes" name="StudentEntryContainerType"></Type>
   </Item>  
-  
-  
-  
+ 
   <Item>
     <Element>YearLevel</Element>
-
     <Characteristics>O</Characteristics>
 	<privacyRating>Low</privacyRating>
     <Description>
@@ -579,6 +577,16 @@
     </Description>
     <Type ref="CodeSets" name="AUCodeSetsYesOrNoCategoryType"></Type>
   </Item>   
+  <!-- Added for CEM Travel Mode requirements, 3.4.8 -->
+  <Item>
+	<Element>TravelDetails</Element>
+    <Characteristics>O</Characteristics>
+	<privacyRating>High</privacyRating>
+    <Description>
+      <p>Information on a student's travel to and from school.</p>
+    </Description>
+    <Type ref="CommonTypes" name="TravelDetailsContainerType"></Type> 
+  </Item> 
   <Item>   
     <Element>LocalCodeList</Element>
     <Characteristics>O</Characteristics>
@@ -612,8 +620,8 @@
         <Code>10</Code>
       </YearLevel>
       <Homeroom SIF_RefObject="RoomInfo">D7510D3E-34B3-591A-8C3D-00AA001A1651</Homeroom>
-      <Counselor SIF_RefObject="StaffPersonal">B459D3E3-4D75-101A-8C3D-00AA001A1653</Counselor>
       <Advisor SIF_RefObject="StaffPersonal">B359D3E3-4D75-101A-8C3D-00AA001A1652</Advisor>
+      <Counselor SIF_RefObject="StaffPersonal">B459D3E3-4D75-101A-8C3D-00AA001A1653</Counselor>
       <ExitType>
         <Code>1909</Code>
         <OtherCodeList>

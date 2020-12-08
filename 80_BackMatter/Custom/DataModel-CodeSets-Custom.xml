@@ -1,5 +1,29 @@
 <Grouping code="AUCodeSets" name="AU Code Sets">
 <CodeSet>
+	<Intro>Travel Mode - Introduced by CEM to indicate mode of travel of the student to/from school.  Initial release in 3.4.8</Intro>
+	<ID>Travel Mode</ID>
+	<Values>
+	<Value><Code>A</Code><Text>Walks between home or a carers' residence and school</Text></Value>	
+	<Value><Code>B</Code><Text>Rides a bicycle or scooter between home or carer's place and school</Text></Value>	
+	<Value><Code>C</Code><Text>Driven by car/motor vehicle between home or a carers' residence and school</Text></Value>	
+	<Value><Code>D</Code><Text>Bus to/from school gates (mostly by bus, remainder on foot)</Text></Value>	
+	<Value><Code>E</Code><Text>Tram to/from near school (mostly by tram, remainder on foot)</Text></Value>	
+	<Value><Code>F</Code><Text>Train to/from near the school (mostly by train, remainder on foot)</Text></Value>	
+	<Value><Code>G</Code><Text>Combination of car and public transport</Text></Value>	
+	<Value><Code>H</Code><Text>Combinations of public transport such as train and bus, or train and tram</Text></Value>	
+	<Value><Code>I</Code><Text>Taxi or other modes</Text></Value>
+	</Values>	
+</CodeSet>
+<CodeSet>
+<Intro>Accompaniment - Introduced by CEM to indicate whether or not the student is accompanied to/from school.  Initial release in 3.4.8</Intro>
+	<ID>Accompaniment</ID>
+	<Values>
+		<Value><Code>A</Code><Text>Adult Accompaniment</Text></Value>
+		<Value><Code>I</Code><Text>Independent</Text></Value>
+		<Value><Code>U</Code><Text>Unknown</Text></Value>
+	</Values>
+</CodeSet>
+<CodeSet>
       <Intro>
         <p>Wellbeing Characteristics - High Level.  Initially provided by WA.  This code set is in draft and changes are expected.  Future changes may re-specify code values.</p> 
       </Intro>
@@ -9311,8 +9335,10 @@
 				<Code>Content</Code>
 				<Text>A link to another state or school content standard.</Text>
 			</Value>
-			<Code>Other</Code>
-			<Text>Any other type of relationship between the current standard and the target standard item.</Text>
+			<Value>
+				<Code>Other</Code>
+				<Text>Any other type of relationship between the current standard and the target standard item.</Text>
+			</Value>
 			<Value>
 				<Code>PD</Code>
 				<Text>Personal Development</Text>

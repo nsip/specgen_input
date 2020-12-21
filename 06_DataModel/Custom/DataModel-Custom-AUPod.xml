@@ -1,0 +1,16 @@
+<IncludeGroup
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+
+    xmlns="http://sifassociation.org/SpecGen">
+
+	<Group name="SIF AU Student Baseline Profile (SBP) and supporting objects">
+
+				<!--P POD -->
+		 		 
+		<xi:include parse="text" href="Common/PersonPrivacyObligation.xml"/>   
+	</Group>
+
+
+</IncludeGroup>

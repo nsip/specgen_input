@@ -1,4 +1,4 @@
-
+<!--
 <CommonElement name="ReportPackageType" type="true">
   <Item>
     <Element>ReportPackageType</Element>
@@ -325,6 +325,7 @@
 			</Item>
 		  </Choice>
 		</CommonElement>
+-->
 
 	<CommonElement type="true" name="MonetaryAmountType">
 			<Item>

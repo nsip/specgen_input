@@ -37,7 +37,7 @@
   </Item>
   
   <Item>
-    <Attribute>ParentObjectType</Attribute>
+    <Element>ParentObjectType</Element>
     <Characteristics>M</Characteristics>
 	<privacyRating>High</privacyRating>
     <Description>
@@ -87,6 +87,16 @@
     </Description>
     <Type name="xs:date"/>
   </Item>  
+  
+  <Item>
+    <Element>LocationList</Element>
+    <Characteristics>O</Characteristics>
+	<privacyRating>Medium</privacyRating>
+    <Description>
+      <p>List of locations where this privacy list applies.</p>
+    </Description>
+    <Type ref="CommonTypes" name="LocationList"></Type>
+  </Item>
   <Item>
 	<Element>ContactForRequestsRefId</Element>
 	<Characteristics>M</Characteristics>
@@ -119,15 +129,20 @@
   
  
   <Item>
-	  <Element>DataDomainObligationList</Element>
+	  <Element>ConsentToSharingOfData</Element>
 	  <Characteristics>M</Characteristics>
 	  <privacyRating>Medium</privacyRating>
 	  <Description></Description>
-	  <Type ref="CommonTypes" name="DataDomainObligationListType"></Type>
+	  <Type ref="CommonTypes" name="ConsentToSharingOfDataContainerType"></Type>
   </Item>
- <!--
-  <Item>PermissionToParticipateList</Item>-->
-
+ 
+  <Item>
+	  <Element>PermissionToParticipateList</Element>
+ 	  <Characteristics>M</Characteristics>
+	  <privacyRating>Medium</privacyRating>
+	  <Description></Description>
+	  <Type ref="CommonTypes" name="PermissionToParticipateListType"></Type>
+  </Item>
   <Item>
 	  <Element>ApplicableLawList</Element>
 	  <Characteristics>O</Characteristics>
@@ -136,51 +151,102 @@
 	  <Type ref="CommonTypes" name="ApplicableLawListType"></Type>
   </Item>
 
-
-  <Item>
-    <Element>SIF_Metadata</Element>
-    <Characteristics>O</Characteristics>
-	<privacyRating>Medium</privacyRating>
-    <Type ref="CommonTypes" name="SIF_MetadataType"></Type>
-  </Item>
-  <Item>
-    <Element>SIF_ExtendedElements</Element>
-    <Characteristics>O</Characteristics>
-	<privacyRating>Medium</privacyRating>
-    <Type ref="CommonTypes" name="SIF_ExtendedElementsType"></Type>
-  </Item>
  <xhtml:Example xmlns="" name="PersonPrivacyObligation">
     <PersonPrivacyObligation RefId="D3E34B35-9D75-101A-8C3D-00AA001A1652">
     <!-- Do we want this as an Element/Attribute or 2 elements?? -->
-      <ParentObjectRefId ParentObjectType="StudentPersonal">AA648462-8886-24AA-5294-BC638017320B</ParentObjectRefId>
+      <ParentObjectRefId>AA648462-8886-24AA-5294-BC638017320B</ParentObjectRefId>
+      <ParentObjectType>StudentPersonal</ParentObjectType>
       <SchoolYear>2020</SchoolYear>
       <StartDate>2020-02-01</StartDate>
       <EndDate>2020-12-01</EndDate>
       <LocationList>
-               <Location>
-                      <LocationType>School</LocationType>
-                      <LocationRefId>D3E34B35-9D75-101A-8C3D-00AA001A1654</LocationRefId>
-                      <LocationLocalId>0123456</LocationLocalId>
+               <Location Type = "School">
+                      <LocationName>Taylors College</LocationName>
+                      <LocationRefId SIF_RefObject = "SchoolInfo">D3E34B35-9D75-101A-8C3D-00AA001A1654</LocationRefId>
+                       
                </Location>
-               <Location>
-                      <LocationType>School</LocationType>
-                      <LocationRefId>E6E34B35-9D75-101A-8C3D-01AA001A1655</LocationRefId>
-                      <LocationLocalId>0123987</LocationLocalId>
+               <Location Type = "School">
+                      <LocationName>Another School</LocationName>
+                      <LocationRefId SIF_RefObject = "SchoolInfo">E6E34B35-9D75-101A-8C3D-01AA001A1655</LocationRefId>
                </Location>
-         </LocationList>
+      </LocationList>
       <ContactForRequestsRefId>C4E34B35-9D75-101A-8C3D-00AA001A1653</ContactForRequestsRefId>
       <ContactForRequestsObjectType>StudentContactPersonal</ContactForRequestsObjectType>
-      <ConsentToSharingOfDataList>
+      <ConsentToSharingOfData>
                <!-- Specific e.g. Directory, militarty, NON-Specific - medical, vendors,-->
                <!-- academic but not behavioural -->
                <!-- for vendors this is domain or object specific -->
                <!-- Domain Specific -= as is 0-->
                
                <DataDomainObligationList>
+                      <!-- Domains of information that are willing to be shared and who with -->
+                      <DataDomainObligation>
+                            <DataDomain>Assessment</DataDomain>
+                            <DomainComments>Can also share NAPLAN results.</DomainComments>
+                            <ShareWithList>
+                                   <ShareWith>
+                                         <ShareWithParty>Assessment Vendors</ShareWithParty>
+                                         <ShareWithRefId>AA648462-8886-24AA-5294-BC638017320C</ShareWithRefId>
+										 <ShareWithLocalId></ShareWithLocalId>
+                                         <ShareWithPurpose>Assessment reporting</ShareWithPurpose>
+                                         <ShareWithRole>Vendor</ShareWithRole>
+                                         <ShareWithComments>A comment</ShareWithComments>
+                                         <PermissionToOnShare>N</PermissionToOnShare>
+                                         <ShareWithURL>www.assessmentworld.com</ShareWithURL>
+                                       </ShareWith>
+                                     <ShareWith>
+                                         <ShareWithParty>Military</ShareWithParty>
+                                         <ShareWithRefId>AA648462-8886-24AA-5294-BC638017320C</ShareWithRefId>
+							             <ShareWithLocalId></ShareWithLocalId>
+                                         <ShareWithPurpose>entrance requirement</ShareWithPurpose>
+                                         <ShareWithRole>Military</ShareWithRole>
+                                         <ShareWithComments>A comment</ShareWithComments>
+                                         <PermissionToOnShare>N</PermissionToOnShare>
+                                         <ShareWithURL>www.military.com</ShareWithURL>
+                                       </ShareWith>
+                            </ShareWithList>
+                      </DataDomainObligation>
+                      <DataDomainObligation>
+                            <DataDomain>Attendance</DataDomain>
+                            <DomainComments>Share with other schools.</DomainComments>
+                            <ShareWithList>
+                                     <ShareWith>
+                                         <ShareWithParty>Assessment Vendors</ShareWithParty>
+                                         <ShareWithRefId>D3E34B35-9D75-101A-8C3D-00AA001A1651</ShareWithRefId>
+										 <ShareWithLocalId></ShareWithLocalId>
+                                         <ShareWithPurpose>Assessment reporting</ShareWithPurpose>
+                                         <ShareWithRole>Vendor</ShareWithRole>
+                                         <ShareWithComments>A comment</ShareWithComments>
+                                         <PermissionToOnShare>N</PermissionToOnShare>
+                                         <ShareWithURL>www.assessmentworld.com</ShareWithURL>
+                                       </ShareWith>
+                                     <ShareWith>
+                                         <ShareWithParty>Military</ShareWithParty>
+                                         <ShareWithRefId>D3E34B35-9D75-101A-8C3D-00AA001A1652</ShareWithRefId>
+										 <ShareWithLocalId></ShareWithLocalId>
+                                         <ShareWithPurpose>entrance requirement</ShareWithPurpose>
+                                         <ShareWithRole>Military</ShareWithRole>
+                                         <ShareWithComments>A comment</ShareWithComments>
+                                         <PermissionToOnShare>N</PermissionToOnShare>
+                                         <ShareWithURL>www.military.com</ShareWithURL>
+                                       </ShareWith>
+                            </ShareWithList>
+                            <DoNotShareWithList>
+                                <DoNotShareWith>
+                                    <DoNotShareWithParty>John Wilbur Loavel</DoNotShareWithParty>
+                                    <DoNotShareWithRefId>B3E34B35-9D75-101A-8C3D-00AA001A1655</DoNotShareWithRefId>
+									<DoNotShareWithLocalId></DoNotShareWithLocalId>
+                                    <DoNotShareWithPurpose>Father</DoNotShareWithPurpose>
+                                    <DoNotShareWithRole>Parent</DoNotShareWithRole>
+                                    <DoNotShareWithComments>Student assessment information is not to be shared with the father.</DoNotShareWithComments>
+                                </DoNotShareWith>
+                            </DoNotShareWithList>
+
+                      </DataDomainObligation>
                <!-- Domains of information that are willing to be shared and who with -->
                       <DataDomainObligation>
                             <DataDomain>Assessment</DataDomain>
-                            <DataDomainComments>Can also share NAPLAN results.</DataDomainComments>
+                            <DomainComments>Can also share NAPLAN results.</DomainComments>
                             <ShareWithList>
                                    <ShareWith>
                                          <ShareWithParty>Assessment Vendors</ShareWithParty>
@@ -208,7 +274,7 @@
                       </DataDomainObligation>
                       <DataDomainObligation>
                             <DataDomain>Attendance</DataDomain>
-                            <DataDomainComments>Share with other schools.</DataDomainComments>
+                            <DomainComments>Share with other schools.</DomainComments>
                             <ShareWithList>
                                    <ShareWith>
                                          <ShareWithParty>School XYZ</ShareWithParty>
@@ -228,31 +294,38 @@
                             <DoNotShareWithList>
 									<DoNotShareWith>
 										<DoNotShareWithParty>John Wilbur Loavel</DoNotShareWithParty>
+										<DoNotShareWithRefId>F3E34B35-9D75-101A-8C3D-00AA001A1655</DoNotShareWithRefId>
+										<DoNotShareWithLocalId></DoNotShareWithLocalId>
 										<DoNotShareWithPurpose>Father</DoNotShareWithPurpose>
 										<DoNotShareWithRole>Parent</DoNotShareWithRole>
 										<DoNotShareWithComments>Student attendance information is not to be shared with the father.</DoNotShareWithComments>
+										<DoNotShareWithURL></DoNotShareWithURL>
 									</DoNotShareWith>
-						</DoNotShareWithList>
+							</DoNotShareWithList>
                       </DataDomainObligation>
                </DataDomainObligationList>
                <!--This indicates a higher level and overrides share/do not share information at specific domains -->
                <NeverShareWithList>
                       <NeverShareWith>
                             <NeverShareWithParty>Media</NeverShareWithParty>
+               				<NeverShareWithRefId>D3E34B35-9D75-101A-8C3D-00AA001A1655</NeverShareWithRefId>
+							<NeverShareWithLocalId></NeverShareWithLocalId>
+                            <NeverShareWithPurpose>Never Share</NeverShareWithPurpose>
+                            <NeverShareWithRole>Company</NeverShareWithRole>
                             <NeverShareWithComments>Student and/or family information is not to be shared with the Media.</NeverShareWithComments>
                             <NeverShareWithURL>www.Mediaworld.com</NeverShareWithURL>
                       </NeverShareWith>
                </NeverShareWithList>
-      </ConsentToSharingOfDataList>
-      <PermissionToParticpateList>
+      </ConsentToSharingOfData>
+      <PermissionToParticipateList>
                <PermissionToParticipate>  <!-- Permissions -->
                       <!--Code of Conduct, BikeRiding, Walk to or from school, excursions Where do I get a list-->
                      <!-- Ride to, Walk to, Excursoions, specific or general?, parents, overnight, camps -->
                       <PermissionCategory>Travel</PermissionCategory>
                       <Permission>WalkHome</Permission> 
                       <PermissionValue>Y</PermissionValue>
-                      <StartDate>2020-01-01</StartDate>  
-                      <EndDate>2020-12-31</EndDate>
+                      <PermissionStartDate>2020-01-01</PermissionStartDate>  
+                      <PermissionEndDate>2020-12-31</PermissionEndDate>
                       <PermissionComments>Only with a sibling.</PermissionComments>
                </PermissionToParticipate>
                <PermissionToParticipate>  <!-- Permissions -->
@@ -261,8 +334,8 @@
                       <PermissionCategory>Travel</PermissionCategory>
                       <Permission>RideBikeHome</Permission> 
                       <PermissionValue>N</PermissionValue>
-                      <StartDate>2020-01-01</StartDate>  
-                      <EndDate>2020-12-31</EndDate>
+                      <PermissionStartDate>2020-01-01</PermissionStartDate>  
+                      <PermissionEndDate>2020-12-31</PermissionEndDate>
                       <PermissionComments>Only with a sibling.</PermissionComments>
                </PermissionToParticipate>
                <PermissionToParticipate>  <!-- Permissions -->
@@ -271,8 +344,8 @@
                       <PermissionCategory>Excursions</PermissionCategory>
                       <Permission>Attend Excursions General</Permission> 
                       <PermissionValue>Y</PermissionValue>
-                      <StartDate>2020-01-01</StartDate>  
-                      <EndDate>2020-12-31</EndDate>
+                      <PermissionStartDate>2020-01-01</PermissionStartDate>  
+                      <PermissionEndDate>2020-12-31</PermissionEndDate>
                       <PermissionComments>Optional Comment</PermissionComments>
                </PermissionToParticipate>
                <PermissionToParticipate>  <!-- Permissions -->
@@ -281,12 +354,12 @@
                       <PermissionCategory>Excursions</PermissionCategory>
                       <Permission>Overnight Camps</Permission> 
                       <PermissionValue>N</PermissionValue>
-                      <StartDate>2020-01-01</StartDate>  
-                      <EndDate>2020-12-31</EndDate>
+                      <PermissionStartDate>2020-01-01</PermissionStartDate>  
+                      <PermissionEndDate>2020-12-31</PermissionEndDate>
                       <PermissionComments>Optional Comment</PermissionComments>
                </PermissionToParticipate>
-         </PermissionToParticpateList>
-      <ApplicableLaws>
+         </PermissionToParticipateList>
+      <ApplicableLawList>
              <ApplicableLaw>
                     <ApplicableCountry>AU</ApplicableCountry>  <!--Which code set?  Does it need to be international? -->
                     <ApplicableLawName>APP1</ApplicableLawName>
@@ -297,7 +370,7 @@
                     <ApplicableLawName>APP2</ApplicableLawName>
                     <ApplicableLawURL>http://www.vic.priv.contract.edu.au</ApplicableLawURL>
              </ApplicableLaw> 
-      </ApplicableLaws>
+      </ApplicableLawList>
        
     </PersonPrivacyObligation>
  
